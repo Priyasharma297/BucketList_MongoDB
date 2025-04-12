@@ -1,0 +1,2 @@
+# BucketList_MongoDB
+ BucketList Tracker is a full-stack web app built with Node.js, Express, MongoDB, Handlebars (HBS), CSS, and JavaScript. It allows users to add, track, and share their bucket list goals with images and stories. The app features secure JWT-based authentication, image uploads, and dynamic content rendering. It also integrates the Gemini itinerary planner, which helps users generate personalized travel plans based on their bucket list destinations, making the experience both inspiring and practical.
