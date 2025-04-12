@@ -1,0 +1,341 @@
+body {
+    background-color: rgb(207, 215, 223);
+    background-image: url('https://i.pinimg.com/736x/c5/c8/a1/c5c8a1b87c3fd07644f82d5d70447279.jpg');
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: soft-light;
+}
+
+nav h4 {
+    font-size: 20px;
+    color: rgb(63, 37, 37);
+    display: flex;
+    font-family: cursive;
+    align-items: center;
+    margin: 0;
+}
+
+nav h4 span {
+    font-size: 1.7rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #2b2826, #930303, #014f68);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bucket-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.bucket-item {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bucket-item h3 {
+    font-size: 1.5rem;
+    color: rgb(60, 60, 60);
+    margin: 10px 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.bucket-item img {
+    border-radius: 10px;
+    max-width: 60%;
+    height: auto;
+    margin: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bucket-item p {
+    font-family: 'Georgia', serif;
+    color: rgb(90, 90, 90);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.bucket-item .content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.bucket-item .content-container .story {
+    font-family: 'Georgia', serif;
+    color: rgb(61, 60, 60);
+    font-size: 1.1rem;
+    width: 85%;
+    padding-left: 10px;
+    text-align: left;
+    line-height: 1.6;
+    background-color: rgb(248, 220, 220);
+}
+
+.search-bar {
+    text-align: center;
+    margin: 20px;
+    display: none;
+}
+
+.search-bar input {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 10px;
+    outline: none;
+}
+
+.search-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(90, 90, 90);
+    transition: transform 0.3s ease;
+}
+
+.search-icon:hover {
+    transform: scale(1.2);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+button {
+    margin-bottom: 10px;
+    background-color: #fff6f6;
+    color: rgb(17, 17, 17);
+    width: 350px;
+    height: 50px;
+    border-radius: 18px;
+    font-size: large;
+}
+@media screen and (max-width: 768px) {
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-image: none;
+        background-color: beige;
+    }
+
+    nav {
+        font-size: 14px;
+        padding: 5px 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    nav h4 {
+        font-size: 18px;
+        margin: 5px 0;
+    }
+
+    nav h4 span {
+        font-size: 1.4rem;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        gap: 0;
+    }
+
+    nav ul li {
+        width: 33.33%;
+        text-align: center;
+        padding: 4px 0;
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.2;
+        box-sizing: border-box;
+    }
+
+    .bucket-list {
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .bucket-item {
+        width: 90%;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .bucket-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .bucket-item img {
+        max-width: 80%;
+    }
+
+    .bucket-item p,
+    .bucket-item .story {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    .content-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-bar input {
+        width: 90%;
+        font-size: 0.95rem;
+    }
+
+    button,
+    .btu {
+        width: 80%;
+        font-size: 0.95rem;
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        background-image: none;
+        background-color: beige;
+    }
+
+    nav {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+
+    nav h4 {
+        font-size: 16px;
+    }
+
+    nav h4 span {
+        font-size: 1.3rem;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    nav ul li {
+        width: 33.33%;
+        text-align: center;
+        padding: 4px 0;
+        font-size: 11px;
+        line-height: 1.2;
+    }
+
+    .bucket-list {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .bucket-item {
+        width: 95%;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .bucket-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .bucket-item img {
+        max-width: 90%;
+    }
+
+    .bucket-item p,
+    .bucket-item .story {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+
+    .search-bar input {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+
+    button,
+    .btu {
+        width: 85%;
+        font-size: 0.9rem;
+        height: 42px;
+    }
+
+    .popup-content {
+        width: 90%;
+        max-width: 320px;
+        padding: 15px;
+    }
+
+    .popup-close {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,280 @@
+body {
+    background-color: rgb(184, 195, 205);
+    background-image: url('https://i.pinimg.com/736x/c5/c8/a1/c5c8a1b87c3fd07644f82d5d70447279.jpg');
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: soft-light;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 300px;
+    height: 500px;
+    border-radius: 8px;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: monospace;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.button-link {
+    font-size: 16px;
+    color: aliceblue;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.marquee {
+    width: 1470px;
+    background-color: rgba(192, 170, 154, 0.763);
+    color: white;
+    font-size: 20px;
+    padding: 10px 0;
+    text-align: center;
+    font-family: monospace;
+}
+
+.container {
+    display: flex;
+    width: 650px;
+    height: 500px;
+    background-color: lightgrey;
+    box-shadow: 30px;
+    border-radius: 8px;
+    padding: 0px;
+}
+
+.cardr {
+    padding: 10px;
+}
+
+.card-header h1 {
+    font-style: italic;
+}
+
+.card-body .form {
+    margin-bottom: 10px;
+}
+
+.card-body .form-label {
+    font-weight: bold;
+}
+
+.card-body .form-control {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.card-body button {
+    background-color: #080808;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.card-body button:hover {
+    background-color: #191919;
+}
+
+footer {
+    color: rgb(3, 6, 9);
+    opacity: 60%;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    html, body {
+        width: 100%;
+        max-width: 100vw;
+        margin: 0; /* ← Important to remove default spacing */
+        padding: 0;
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+    }
+
+    nav {
+        font-size: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 95%;
+        overflow-x: hidden;
+    }
+
+    nav ul {
+        padding: 1px;
+        margin: 2px;
+        list-style: none;
+        width: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .login-container {
+        width: 100%;
+        padding: 10px 0; /* ↓ Reduced padding */
+        margin-top: 10px; /* ↓ Added to reduce extra space */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container{
+        width: 80%;
+    }
+    .login-box {
+        width: 90%;
+        max-width: 400px;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .login-form {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .login-form h2 {
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .login-form input,
+    .login-form button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .login-form button {
+        background-color: #333;
+        color: white;
+        cursor: pointer;
+    }
+
+    .image-container {
+        width: 100%;
+        height: 180px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 0;
+    }
+    .image-container{
+        display: none;
+    }
+
+    .image-container .overlay-text {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 10px;
+        padding: 0 10px;
+        line-height: 1.3;
+        white-space: nowrap;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
+    }
+
+    footer {
+        font-size: 14px;
+        text-align: center;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .marquee{
+        margin-top: 20px;
+    }
+}
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    nav a {
+        margin: 8px 0;
+    }
+
+    .login-container {
+        margin-top: 5px; /* ↓ Lower margin on very small screens */
+        padding: 5px 0;
+    }
+    .marquee{
+        margin-top: 20px;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .image-container {
+        width: 100%;
+        height: 160px;
+    }
+    .container{
+        width: 80%;
+    }
+    .overlay-text {
+        font-size: 16px;
+        padding: 5px 8px;
+        background-color: rgba(0, 0, 0, 0.5);
+        white-space: normal;
+        line-height: 1.2;
+    }
+
+    .login-form input,
+    .login-form button {
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 12px;
+        width: 100%;
+    }
+    .image-container{
+        display: none;
+    }
+}

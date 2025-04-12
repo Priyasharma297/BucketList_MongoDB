@@ -1,0 +1,153 @@
+
+body {
+    background-image: url('public/Images/bg.avif');
+    background-position: center;
+    background-size: cover;
+    background-color: beige;
+    background-blend-mode: soft-light;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* ---------------------------- */
+/* Tablet & smaller (≤ 768px) */
+/* ---------------------------- */
+@media (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-image: url('public/Images/bg.avif');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: beige;
+        background-blend-mode: soft-light;
+    }
+
+    .main-wrapper {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .image-gallery img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 400px;
+        margin: 20px auto;
+        text-align: center;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .about-card {
+        width: 90%;
+        max-width: 450px;
+        padding: 15px;
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    .start_button a {
+        font-size: 16px;
+        text-align: center;
+        display: inline-block;
+        padding: 8px 8px;
+        
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    footer {
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 14px;
+    }
+}
+
+/* ---------------------------- */
+/* Phone (≤ 480px) */
+/* ---------------------------- */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 35px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .card {
+        width: 95%;
+    }
+
+    .start_button a {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .main-wrapper {
+        padding: 15px 5px;
+    }
+
+    .about-card {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .image-gallery img {
+        width: 100%;
+    }
+}
