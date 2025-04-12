@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/profile.css">
+</head>
+<body>
+    <nav>
+        <h4>
+            <img src="uploads\bucket-list.png" alt="Bucket List Icon">
+            <span>&nbsp;BucketList Tracker</span>
+        </h4>
+        <ul>
+            <li><a href="/user">About</a></li>
+            <li><a href="/profile" style="color: rgb(113, 112, 112)">Profile</a></li>
+            <li><a href="/bucketList">BucketList</a></li>
+            <li><a href="/stories">Experience</a></li>
+            <li><a href="/itinerary">Planner</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <br>
+    <div class="container">
+        <div class="profile-header">
+            <img id="profileImage" src="{{user.profileImage}}" alt="User Icon">
+            <div class="details">
+                <h1>{{user.name}}</h1>
+                <p><b>Email: </b>{{user.email}}</p>
+                <p><b>Password: </b>{{user.password}}</p>
+                <p><b>Address: </b>{{user.address}}</p>
+                <p><b>City: </b>{{user.city}}</p>
+                <p><b>Age: </b>{{user.age}}</p>
+                <p><b>Gender: </b>{{user.gender}}</p>
+                <button class="show-update-btn">Update Info</button>
+            </div>
+        </div>
+
+        <div class="update-header">
+            <div class="details">
+                <h2><i>Update your information</i></h2>
+                <p><b>Profile Image: </b><input type="file" id="image" accept="image/*"></p>
+                <p><b>Address: </b><input type="text" id="address" placeholder="Address"></p>
+                <p><b>City: </b><input type="text" id="city" placeholder="City"></p>
+                <p><b>Mobile Number: </b><input type="text" id="mobile" placeholder="Mobile Number"></p>
+                <p><b>Age: </b><input type="number" id="age" placeholder="Age"></p>
+                <p><b>Gender: </b>
+                    <select id="gender">
+                        <option value="Male" {{#if (equals user.gender 'Male')}}selected{{/if}}>Male</option>
+                        <option value="Female" {{#if (equals user.gender 'Female')}}selected{{/if}}>Female</option>
+                        <option value="Other" {{#if (equals user.gender 'Other')}}selected{{/if}}>Other</option>
+                    </select>
+                </p>
+                <button id="updateBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const updateBtn = document.querySelector('.show-update-btn');
+    const profileHeader = document.querySelector('.profile-header');
+    const updateHeader = document.querySelector('.update-header');
+
+    updateBtn.addEventListener('click', function() {
+        profileHeader.style.display = 'none';
+        updateHeader.style.display = 'block';
+    });
+
+    document.getElementById('updateBtn').addEventListener('click', function() {
+        const address = document.getElementById('address').value;
+        const city = document.getElementById('city').value;
+        const mobile = document.getElementById('mobile').value;
+        const age = document.getElementById('age').value;
+        const gender = document.getElementById('gender').value;
+        const image = document.getElementById('image').files[0];
+
+        const formData = new FormData();
+        formData.append('address', address);
+        formData.append('city', city);
+        formData.append('mobile', mobile);
+        formData.append('age', age);
+        formData.append('gender', gender);
+        if (image) {
+            formData.append('image', image);
+        }
+
+        fetch('/auth/updateProfile', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Profile updated successfully!');
+                window.location.reload(); // ✅ refresh to see updated values
+            } else {
+                alert('Error updating profile.');
+            }
+        });
+    });
+</script>
+
+    <br>
+    <br>
+    <br>
+    <footer>Copyright &#169; Designed by Priya Sharma</footer>
+</body>
+</html>

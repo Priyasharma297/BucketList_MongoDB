@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/story.css">
+</head>
+<body>
+    <nav>
+        <h4>
+            <img src="uploads\bucket-list.png">
+            <span>&nbsp;BucketList Tracker</span>
+        </h4>
+        <ul>
+            <li><a href="/user" style="color: rgb(113, 112, 112)">About</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/bucketList">BucketList</a></li>
+            <li><a href="/stories">Stories</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <audio id="background-audio" autoplay loop>
+        <source src="/uploads/Avicii_-_The_Nights_CeeNaija.com_.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <center>
+        <h1>My Stories</h1>
+        <div id="audio-controls">
+            <button id="play-audio">Play</button>
+            <button id="pause-audio">Pause</button>
+        </div>
+        <button id="load-images">Show</button>
+        <button id="next-image" style="display: none;">Next</button>
+        <div id="story-content" class="uploaded-image-container">
+            <div class="no-images-message" id="no-images-message">
+                Take a moment to celebrate your incredible journey! 
+                <div>Click the 'Show' button above to unveil all your cherished Bucket List achievements and relive the memories of your amazing accomplishments.</div>
+            </div>
+        </div>
+    </center>
+
+    <script>
+        const audio = document.getElementById('background-audio');
+        const playAudio = document.getElementById('play-audio');
+        const pauseAudio = document.getElementById('pause-audio');
+
+        playAudio.addEventListener('click', () => audio.play());
+        pauseAudio.addEventListener('click', () => audio.pause());
+
+        document.getElementById('load-images').addEventListener('click', function () {
+            const loadButton = document.getElementById('load-images');
+            fetch('/bucket/images', { method: 'GET', credentials: 'include' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Unauthorized');
+                    }
+                    return response.json();
+                })
+                .then(images => {
+                    const container = document.getElementById('story-content');
+                    const nextButton = document.getElementById('next-image');
+                    let currentIndex = 0;
+
+                    container.innerHTML = ''; 
+                    const validImages = images.filter(imageUrl => imageUrl && imageUrl.trim() !== '');
+
+                    if (validImages.length === 0) {
+                        return; 
+                    }
+
+                    validImages.forEach((imageUrl, index) => {
+                        const img = document.createElement('img');
+                        img.src = imageUrl;
+
+                        img.onerror = function () {
+                            console.warn(`Image failed to load: ${imageUrl}`);
+                        };
+
+                        if (index === 0) img.classList.add('active');
+                        container.appendChild(img);
+                    });
+
+                    nextButton.style.display = 'inline-block';
+                    nextButton.addEventListener('click', function () {
+                        const imageElements = container.querySelectorAll('img');
+                        imageElements.forEach((img, index) => {
+                            img.classList.remove('active');
+                            if (index === currentIndex) img.classList.add('active');
+                        });
+                        currentIndex = (currentIndex + 1) % imageElements.length;
+                    });
+
+                    loadButton.style.display = 'none';
+                })
+                .catch(error => console.error('Error loading images:', error));
+        });
+
+    </script>
+    <br>
+    <br>
+    <br>
+    <footer>
+        Copyright &#169; Designed by Priya Sharma
+    </footer>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BucketList_Explore</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/explore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll(".image-grid img");
+        const modal = document.getElementById("modal");
+        const modalContent = document.getElementById("modal-content");
+        const modalBody = document.getElementById("modal-body");
+        const modalClose = document.getElementById("modal-close");
+
+        images.forEach(image => {
+            image.addEventListener("click", () => {
+                const info = image.getAttribute("data-info");
+                modalBody.innerHTML = `<img src="${image.src}"><p>${info}</p>`;
+                modal.classList.add("show");
+            });
+        });
+
+        modalClose.addEventListener("click", () => {
+            modal.classList.remove("show");
+        });
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.classList.remove("show");
+            }
+        });
+    });
+</script>
+
+</head>
+<body class="register">
+<nav>
+  <h4 style="font-size: 20px; color: rgb(63, 37, 37); display: flex; font-family: cursive; align-items: center; margin: 0;">
+    <img src="uploads/bucket-list.png" style="width: 50px; height: 50px; margin-right: 0;">
+    <span style="font-size: 1.7rem; font-weight: bold; background: linear-gradient(90deg, #2b2826, #930303, #014f68); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      &nbsp;BucketList Tracker
+    </span>
+  </h4>
+  <ul>
+    <li><a href="/home" >Home</a></li>
+    <li><a href="/explore" style="color:rgb(113, 112, 112)">Explore</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/register">Register</a></li>
+  </ul>
+</nav>
+<center>
+    <h1>THINGS TO DO</h1>
+    <h1><i>in this beautiful world!</i></h1>
+    <h4>Just click the image to explore.....</h4>
+</center>
+<div class="image-grid">
+    <div class="image-card">
+        <img src="https://imgix.swoop-arctic.com/Shu_3_shu_all_Northernlights4.jpg?auto=format,enhance,compress&fit=crop&crop=entropy,faces,focalpoint&w=580&h=480&q=40" data-info="<h2>See the Northern Lights:</h2> Witness the magical auroras in places like Norway, Iceland, or Canada">
+        <h1>Northern Lights</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/dramatic-storm-cloud-above-pyramids-giza-egypt-royalty-free-image-1706635972.jpg?crop=0.76167xw:1xh;center,top&resize=1200:*" data-info="<h2>Pyramids of Giza:</h2> Marvel at the ancient architectural wonders of Egypt's most iconic pyramids.">
+        <h1>Pyramids of Giza</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://www.machupicchutrek.net/wp-content/uploads/2021/02/machu-picchu-coronavirus.jpg" data-info="<h2>Machu Picchu:</h2> Trek through the Andes to reach this ancient Incan city and enjoy its stunning scenery.">
+        <h1>Machu Picchu</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://www.skydivetecumseh.com/wp-content/uploads/2019/07/Beautiful-Sunset-1200x900.jpg" data-info="<h2>Skydive:</h2>Experience the thrill of freefalling from an airplane and parachuting to the ground.">
+        <h1>Skydive</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://t4.ftcdn.net/jpg/05/93/60/29/360_F_593602943_D0Zw5uPllPoovzLHRILTD1czGCojleXw.jpg" data-info="<h2>Bungee jump:</h2>Jump off a high platform or bridge while securely attached to a bungee cord.">
+        <h1>Bungee jump</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://www.coral-reef-info.com/wp-content/uploads/2024/01/Caribbean-Diving-1280x853-1.webp" data-info="<h2>Scuba dive:</h2>Explore the underwater world of the world's largest coral reef system.">
+        <h1>Scuba dive</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://cdn.britannica.com/32/142132-050-BEE32264/Paragliding.jpg" data-info="<h2>Paraglide:</h2>Soar through the sky with breathtaking views beneath you.">
+        <h1>Paraglide</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://trekguatemala.com/wp-content/uploads/2016/11/Trek-Guatemala-Pacaya-Hike2-845x666.jpg" data-info="<h2>Volcano Trekking</h2> Hike up the active volcano of Mount Bromo for a stunning sunrise view">
+        <h1>Volcano Trekking</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://nvaloft.com/wp-content/uploads/2022/04/Hot-air-balloon-over-field-min.jpg" data-info="<h2>Hot Air Ballooning</h2>Float over surreal landscapes and rock formations">
+        <h1>Hot Air Ballooning</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*JlVE2DNdBYOs_r3tumsfPw.png" data-info="<h2>Conquer a fear</h2>Face a fear head-on">
+        <h1>Conquer a fear</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://discovery.sndimg.com/content/dam/images/discovery/fullset/2020/4/24/tenerife.jpg.rend.hgtvcom.406.406.suffix/1587852538115.jpeg" data-info="<h2>stargazing</h2>Experience the awe of a clear, star-filled sky">
+        <h1>Stargazing</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://mdmehedihasan131012029.wordpress.com/wp-content/uploads/2017/11/6359166120557343331796678965_camera-technology-to-assist-your-property-inspection-app.png?w=1000&h=712" data-info="<h2>Spend a week without technology</h2>Detox from digital distractions">
+        <h1>Week without technology</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://www.timeshighereducation.com/sites/default/files/languages-signpost.jpg" data-info="<h2>Learn a new language</h2> Immerse yourself in a different culture">
+        <h1>Learn a new language</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://i.ytimg.com/vi/ROFiikjcl7Q/maxresdefault.jpg" data-info="<h2>Get a pilot’s license</h2>Experience the thrill of flying">
+        <h1>Get a pilot’s license</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/woman-hand-writing-on-notebook-royalty-free-image-639446454-1546879611.jpg" data-info="<h2>Write a book</h2>Share your stories">
+        <h1>Write a book</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://i.insider.com/5da1a45a695b5841f16ee2f6?width=700" data-info="<h2>Complete a marathon</h2>Challenge yourself physically">
+        <h1>Complete a marathon</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://images.theconversation.com/files/430015/original/file-20211103-27-1gojlp9.jpg" data-info="<h2>Learn to dance</h2>Enjoy the fun of learning a dance style.">
+        <h1>Learn to dance</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://t4.ftcdn.net/jpg/06/27/98/97/360_F_627989764_y8Ci6RkJDOgWrcOmLRnaEAzNJ1IxPE6p.jpg" data-info="<h2>Create a family tree</h2>Trace your ancestry and heritage.">
+        <h1>Create a family tree</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/618825c1efab506702a1cc2f/96be76f1-566f-4245-8749-f32d8b3032c5/tftf-087.jpg" data-info="<h2>Experience zero gravity</h2>Take a zero-gravity flight.">
+        <h1>Experience zero gravity</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://t3.ftcdn.net/jpg/06/67/93/06/360_F_667930696_3abtorbHPL0RcxNknxhNUCzFRDv2a7Pu.jpg" data-info="<h2>Stay in an underwater hotel</h2>Enjoy breathtaking underwater views.">
+        <h1>Stay in an underwater hotel</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://elmirastoveworks.com/wp-content/uploads/2019/08/Image-1.webp" data-info="<h2>Road trip across the USA on Route 66 </h2>Drive from Chicago to Santa Monica.">
+        <h1>Road trip across the USA</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://devdiscourse.blob.core.windows.net/newswire/09_12_2019_13_18_53_9512462.jpg" data-info="<h2>Volunteer for a cause you care about</h2>Give back to the community.">
+        <h1>Volunteer for a cause</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://static.toiimg.com/imagenext/toiblogs/photo/readersblog/wp-content/uploads/2022/11/21_06_2020-21_06_2020-yoga_divas_20417405_20418628.jpg" data-info="<h2>Practice meditation or yoga regularly</h2>Enhance your well-being.">
+        <h1>Practice meditation </h1>
+    </div>
+    <div class="image-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4EpbbFvSR3Wji72rpfGXZjr7iUlh4y02YysViwaXrBZhXWNPf_BtiXNBVQo9Y2A-LW0&usqp=CAU" data-info="<h2>Attend a major sports event</h2>Experience the Super Bowl, World Cup, or Olympics.">
+        <h1>Attend sports event</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://www.compassion.com/Images/sponsor-eductation-25update.jpg" data-info="<h2>Sponsor a child’s education</h2>Support a child's learning.">
+        <h1>Sponsor education</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://www.shutterstock.com/image-photo/group-eco-volunteers-picking-plastic-600nw-2244822853.jpg" data-info="<h2>Organize a community cleanup</h2>Help improve your local environment.">
+        <h1>Community cleanup</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://moneyfcu.org/wp-content/uploads/2021/08/Snowball-Method-for-Paying-Off-Debt.jpg" data-info="<h2>Pay off all your debt</h2>Achieve financial freedom.">
+        <h1>Pay off all your debt</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://assets3.thrillist.com/v1/image/3156733/1200x600/scale;;webp=auto;jpeg_quality=85.jpg" data-info="<h2>Go Sandboarding</h2>Surf down the dunes.">
+        <h1>Go Sandboarding</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://polartourismguides.com/wp-content/uploads/2020/11/PQ-Lead-a-Polar-Journey-1-2.jpg" data-info="<h2>Go on a Polar Expedition</h2>Explore the Arctic or Antarctic.">
+        <h1>Go on a Polar Expedition</h1>
+    </div>
+    <div class="image-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGVLOHJzL95KMs2xfZyHGqmJWE8lKYu6dVg&s" data-info="<h2>Bioluminescent Bay</h2>Witness glowing waters.">
+        <h1>Bioluminescent Bay</h1>
+    </div>
+</div>
+
+
+<div class="modal" id="modal">
+    <div class="modal-content" id="modal-content">
+  <span id="modal-close" class="close-button">&times;</span>
+  <div id="modal-body"></div>
+</div>
+
+</div>
+<br><br>
+{{> footer }}
+</body>
+</html>

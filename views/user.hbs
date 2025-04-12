@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BucketList</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/user.css">
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const countryCards = document.querySelectorAll('.country-card');
+
+        countryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const activities = JSON.parse(this.getAttribute('data-activities'));
+                const countryName = this.getAttribute('data-country');
+                const modal = document.getElementById('modal');
+                const modalContent = document.getElementById('modal-content');
+                
+                modalContent.innerHTML = `
+                    <span class="close">&times;</span>
+                    <h2>Places to visit in ${countryName}</h2>
+                    <ul class="activity-list">
+                        ${activities.map(activity => `
+                            <li class="activity-item">
+                                <img src="${activity.image}" alt="${activity.name}">
+                                ${activity.name}
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                
+                modal.style.display = 'block';
+                const closeBtn = document.querySelector('.close');
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+                window.addEventListener('click', function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <nav>
+        <h4>
+            <span>&nbsp;BucketList Tracker</span>
+        </h4>
+        <ul>
+            <li><a href="/user" style="color: rgb(113, 112, 112)">About</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/bucketList">BucketList</a></li>
+            <li><a href="/stories">Experience</a></li>
+            <li> <a href="/itinerary" >Planner</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="storycard">
+        <h1>Welcome, {{user.name}}!</h1>
+        <h1>
+            Go! Watch your stories..
+            <br><br>
+            <button class="btnnn"><a href="/story">Stories</a></button>
+        </h1>
+    </div>
+    <div  class="box" >
+        <div class="user">
+            <i class="material-icons">&#xe87a;</i>
+            <h1>Let's explore more..</h1>
+            <p>Explore the breathtaking things to do in this world!</p>
+            <button class="btnnn"><a href="/explore">Explore</a></button>
+        </div>
+        <div class="user">
+            <i class="material-icons">search</i>
+            <h1>Discover your next adventure</h1>
+            <p>Mark the completed and begin for new</p>
+            <button class="btnnn"><a href="/bucketList">Tick it</a></button>
+        </div>
+        <div class="user">
+            <i class="material-icons">check_box</i>
+            <h1>Make a perfect bucket list..</h1>
+            <p>Never doubt your ability, you have the power to achieve everything!</p>
+            <button class="btnnn"><a href="/bucketList">Add+</a></button>
+        </div>
+    </div>
+    <hr>
+    <center>
+        <h2>List according to country</h2>
+    </center>
+    <div class="countries">
+        <div class="country-card" data-country="India" data-activities='[
+              {"name": "Taj Mahal", "image": "https://lp-cms-production.imgix.net/news/2018/01/taj-mahal-visitor-limits.jpg"}, 
+              {"name": "Varanasi", "image": "https://www.savaari.com/blog/wp-content/uploads/2017/11/Varanasi-Ahilya-Ghat.jpeg"},
+              {"name": "Kerala Backwaters", "image": "https://www.tripsavvy.com/thmb/UoylMLyzOBPdDp34ForEiJd9m3s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-522478216-5ab12c4e3de4230036949cee.jpg"}, 
+              {"name": "Goa Beaches", "image": "https://media.digitalnomads.world/wp-content/uploads/2021/02/20120605/goa.jpg"}]'>
+            <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag">
+            <h2>India</h2>
+        </div>
+
+        
+        <div class="country-card" data-country="Switzerland" data-activities='[
+        {"name": "Lake Geneva", "image": "https://cdn.inspiringvacations.com/eyJrZXkiOiI0NjQyYjc0Ny1kZGNkLTQ3Y2MtYjdmZS1kNjQ2YjkyYzI1NjcuanBlZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6ODAwfX19"}, 
+        {"name": "Matterhorn", "image": "https://th-thumbnailer.cdn-si-edu.com/wknz0PXJaYqtC52bmJi0BX4PWME=/1000x750/filters:no_upscale():focal(898x449:899x450)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/9e/fa/9efad142-22d0-481f-9738-49e516b732b1/42-81494958.jpg"}, 
+        {"name": "Jungfraujoch", "image": "https://cdn-imgix.headout.com/media/images/1cff221c2a10871ca09886b834816540-Jungfraujoch.jpg"}, 
+        {"name": "Zurich Old Town", "image": "https://www.hlimg.com/images/things2do/738X538/8518991454_178934e579_b_1517574920t.jpg?w=400&dpr=2.6"}]'>
+            <img src="https://img.freepik.com/premium-vector/swiss-happy-national-day-banner-swiss-flag-independence-day_174067-33.jpg?semt=ais_hybrid" alt="Switzerland Flag">
+            <h2>Switzerland</h2>
+        </div>
+
+        
+        <div class="country-card" data-country="New Zealand" data-activities='[
+        {"name": "Milford Sound", "image": "https://content.paulreiffer.com/wp-content/uploads/2020/01/Milford-Sound-Daytime-Reflection-Mitre-Peak-Long-Exposure-Paul-Reiffer-Phase-One-Medium-Format-Landscape-Photographer-Summer-Green-Hills.jpg"}, 
+        {"name": "Rotorua", "image": "https://www.switchbacktravel.com/sites/default/files/Rotorua%2C%20New%20Zealand%20%28m%29.jpg"}, 
+        {"name": "Queenstown", "image": "https://res.cloudinary.com/simpleview/image/upload/v1705281326/clients/queenstownnz/Queenstown_Winter_Aerial_from_Bob_s_Peak_d9f0d329-23bf-489f-86e2-9f008190bbd7.jpg"}, 
+        {"name": "Hobbiton", "image": "https://www.newzealand.com/assets/externally-managed-assets/tbd-assets/tbd-folder-4936125/img-1713486551-23-615327-tbd-asset__aWxvdmVrZWxseQo_CropResizeWzk0MCw1MzAsOTAsImpwZyJd.jpg"}]'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg" alt="New Zealand Flag">
+            <h2>New Zealand</h2>
+        </div>
+
+        
+        <div class="country-card" data-country="Norway" data-activities='[
+        {"name": "Fjords", "image": "https://res.cloudinary.com/simpleview/image/upload/v1470836048/clients/norway/naeroyfjorden_fjord_norway_2_1_001b9127-14ad-4b3d-99b6-29d8b3aae412.jpg"}, 
+        {"name": "Oslo", "image": "https://i.pinimg.com/736x/f7/5b/62/f75b629321307b9df939f84a335bd9bc.jpg"}, 
+        {"name": "Bergen", "image": "https://cdn.sanity.io/images/4aans0in/production/d9deeef72a6b06a652dea13139455f9328332c97-3000x1539.jpg?rect=0,0,2736,1539&w=3840&h=2160&fm=webp&q=100&fit=max&auto=format"}, 
+        {"name": "Tromsø", "image": "https://www.flightgift.com/media/wp/FG/2024/02/tromso.webp"}]'>
+            <img src="https://media.istockphoto.com/id/460134109/photo/red-white-and-blue-norwegian-flag.webp?b=1&s=170667a&w=0&k=20&c=Lk6VIaoGgz1otQSY6yn3Zd3DHX93OOk0cqFRkYSdiHc=" alt="Norway Flag">
+            <h2>Norway</h2>
+        </div>
+
+        
+        <div class="country-card" data-country="Greece" data-activities='[
+        {"name": "Santorini", "image": "https://www.greekexclusiveproperties.com/wp-content/uploads/2019/10/Santorini-Declared-No1-Island-in-the-World-.jpg"}, 
+        {"name": "Athens", "image": "https://cdn.britannica.com/66/102266-050-FBDEFCA1/acropolis-city-state-Greece-Athens.jpg"}, 
+        {"name": "Crete", "image": "https://www.mensjournal.com/.image/t_share/MTk2MTM3NDA2ODc1ODM3OTU3/crete.jpg"}, 
+        {"name": "Mykonos", "image": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1d/81/2d/63/caption.jpg"}]'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/600px-Flag_of_Greece.svg.png?20160309091801" alt="Greece Flag">
+            <h2>Greece</h2>
+        </div>
+
+       
+        <div class="country-card" data-country="Canada" data-activities='[
+        {"name": "Niagara Falls", "image": "https://cdn.britannica.com/30/94430-050-D0FC51CD/Niagara-Falls.jpg"}, 
+        {"name": "Banff National Park", "image": "https://cdn.britannica.com/71/94371-050-293AE931/Mountains-region-Ten-Peaks-Moraine-Lake-Alberta.jpg"}, 
+        {"name": "Vancouver", "image": "https://res.cloudinary.com/simpleview/image/upload/v1589990523/clients/vancouverbc/Vancouver_Aerial_2017_1__72115131-4a31-42dc-b369-7a5ccec8273f.jpg"}, 
+        {"name": "Montreal", "image": "https://travel.destinationcanada.com/_next/image?url=https%3A%2F%2Fadmin.destinationcanada.com%2Fsites%2Fdefault%2Ffiles%2F2023-06%2FQC-Montreal-Skyline_hero.jpg&w=1920&q=75"}]'>
+            <img src="https://upload.wikimedia.org/wikipedia/en/c/cf/Flag_of_Canada.svg" alt="Canada Flag">
+            <h2>Canada</h2>
+        </div>
+
+        <div class="country-card" data-country="Iceland" data-activities='[
+        {"name": "Golden Circle", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi52aA9lglJYtM321A9V36s1gpeQBp6lGnHijfS8V_5X8r9mOgfvG3HutUQWobp4uSvwI&usqp=CAU"}, 
+        {"name": "Blue Lagoon", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTLiqn-PXhq1Ti_AJ-c_TcFUbNHI53bmfeAQ&s"}, 
+        {"name": "Reykjavik", "image": "https://images.prismic.io/visiticeland/fed7e105-3226-4c2f-a764-78f5863ca6ba_reykjavik.png?auto=compress,format"}, 
+        {"name": "Northern Lights", "image": "https://static.independent.co.uk/2023/05/04/10/iStock-1058181722.jpg"}]'>
+            <img src="https://cdn.britannica.com/85/1485-050-2819302A/Flag-Iceland.jpg" alt="Iceland Flag">
+            <h2>Iceland</h2>
+        </div>
+
+      
+        <div class="country-card" data-country="Chile" data-activities='[
+        {"name": "Easter Island", "image": "https://assets.editorial.aetnd.com/uploads/2009/11/easter-island-gettyimages-89175284.jpg"}, 
+        {"name": "San Pedro de Atacama", "image": "https://sanpedroatacama.com/wp-content/uploads/sites/5/2023/06/valle_de_la_luna_sanpedro-scaled.jpg"}, 
+        {"name": "Valparaíso", "image": "https://content.r9cdn.net/rimg/dimg/ef/8c/ff016182-city-835-16e60d10354.jpg?width=1366&height=768&xhint=1469&yhint=1033&crop=true"}, 
+        {"name": "Torres del Paine", "image": "https://www.journeylatinamerica.com/app/uploads/destinations/chile/torres-del-paine-national-park/chi_torresdelpaine_shutterstock-26-1200x800-c-center.jpg"}]'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/1024px-Flag_of_Chile.svg.png" alt="Chile Flag">
+            <h2>Chile</h2>
+        </div>
+
+       
+        <div class="country-card" data-country="Australia" data-activities='[
+        {"name": "Sydney Opera House", "image": "https://ychef.files.bbci.co.uk/1280x720/p0gp95cq.jpg"}, 
+        {"name": "Great Barrier Reef", "image": "https://www.fitzroyisland.com/wp-content/uploads/2017/05/Best-Place-To-See-The-Great-Barrier-Reef.png"}, 
+        {"name": "Uluru", "image": "https://i0.wp.com/www.australiangeographic.com.au/wp-content/uploads/2018/06/Uluru_aerial-Corey-Leopold-wiki-1.jpg?fit=1000%2C588&ssl=1"}, 
+        {"name": "Blue Mountains", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ47dObepVcJr1H8MWHleuan5OCZ_71eeXCA&s"}]'>
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Flag_of_Australia.svg" alt="Australia Flag">
+            <h2>Australia</h2>
+        </div>
+
+    
+        <div class="country-card" data-country="Scotland" data-activities='[
+        {"name": "Edinburgh Castle", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKFMe0Nuz0dG_UHpnKS5XUKLuRfL4zBBf48g&s"}, 
+        {"name": "Scottish Highlands", "image": "https://hips.hearstapps.com/hmg-prod/images/kilchurn-sunset-royalty-free-image-1649844859.jpg"}, 
+        {"name": "Loch Ness", "image": "https://nypost.com/wp-content/uploads/sites/2/2018/07/loch-ness-monster.jpg?quality=75&strip=all"}, 
+        {"name": "Glasgow", "image": "https://www.sharkeyuk.com/wp-content/uploads/2018/06/Sharkey_Retail_1.jpg"}]'>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/800px-Flag_of_Scotland.svg.png" alt="Scotland Flag">
+            <h2>Scotland</h2>
+        </div>
+
+        <div class="country-card" data-country="Germany" data-activities='[
+        {"name": "Brandenburg Gate", "image": "https://media.cntraveler.com/photos/5b914e80d5806340ca438db1/16:9/w_2560,c_limit/BrandenburgGate_2018_GettyImages-549093677.jpg"}, 
+        {"name": "Neuschwanstein Castle", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Schloss_Neuschwanstein_2013.jpg/800px-Schloss_Neuschwanstein_2013.jpg"}, 
+        {"name": "Oktoberfest", "image": "https://lp-cms-production.imgix.net/2022-08/GettyImages-1078390306.jpg"}, 
+        {"name": "Berlin Wall", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Berlinermauer.jpg/640px-Berlinermauer.jpg"}]'>
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png" alt="Germany Flag">
+            <h2>Germany</h2>
+        </div>
+
+       
+        <div class="country-card" data-country="Costa Rica" data-activities='[
+        {"name": "Monteverde Cloud Forest", "image": "https://static.toiimg.com/thumb/msid-55749604,width=1200,height=900/55749604.jpg"}, 
+        {"name": "Arenal Volcano", "image": "https://volcano.si.edu/gallery/photos/GVP-08129.jpg"}, 
+        {"name": "Manuel Antonio National Park", "image": "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/70/2b/99.jpg"}, 
+        {"name": "Tortuguero National Park", "image": "https://d2xuzatlfjyc9k.cloudfront.net/wp-content/uploads/2014/05/Tortuguero-Costa-Rica-1.jpg"}]'>
+            <img src="https://cdn.britannica.com/25/7225-004-65F33B16/Flag-Costa-Rica.jpg" alt="Costa Rica Flag">
+            <h2>Costa Rica</h2>
+        </div>
+
+        
+        <div class="country-card" data-country="Thailand" data-activities='[
+        {"name": "Grand Palace", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiLLn-8C0h64Riz09RgHrbeYuC3qO8mSVXYQ&s"}, 
+        {"name": "Chiang Mai", "image": "https://www.theakyra.com/files/5515/5050/1068/Chiang_Mai_Shopping_Malls.jpg"}, 
+        {"name": "Phuket", "image": "https://res.klook.com/image/upload/Mobile/City/p2pfj38lzjf7wsd6gobn.jpg"}, 
+        {"name": "Ayutthaya", "image": "https://www.planetware.com/photos-large/THA/thailand-ayutthaya-wat-chaiwatthanaram.jpg"}]'>
+            <img src="https://cdn.britannica.com/38/4038-050-BDDBA6AB/Flag-Thailand.jpg" alt="Thailand Flag">
+            <h2>Thailand</h2>
+        </div>
+
+        
+        <div class="country-card" data-country="Mexico" data-activities='[
+        {"name": "Chichen Itza", "image": "https://cdn.britannica.com/86/179586-138-8B763D72/Overview-Chichen-Itza-Yucatan-Mexico.jpg"}, 
+        {"name": "Cancun", "image": "https://imageio.forbes.com/specials-images/imageserve/62ddd8334df5d760d5a0bf5b/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds"}, 
+        {"name": "Mexico City", "image": "https://www.fodors.com/wp-content/uploads/2021/05/UltimateMexicoCity__HERO_shutterstock_1058054480.jpg"}, 
+        {"name": "Tulum", "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/28/46/54/caption.jpg?w=1200&h=-1&s=1"}]'>
+            <img src="https://cdn.britannica.com/73/2573-050-C825CE68/Flag-Mexico.jpg" alt="Mexico Flag">
+            <h2>Mexico</h2>
+        </div>
+
+        
+        <div class="country-card" data-country="Turkey" data-activities='[
+        {"name": "Istanbul", "image": "https://curioustimes.in/wp-content/uploads/2019/10/Istanbul-Turkey-International-Travel-Map.jpg"}, 
+        {"name": "Cappadocia", "image": "https://throughkelseyslens.com/wp-content/uploads/2020/02/Hot-Air-Balloons-4-819x1024.jpg"}, 
+        {"name": "Pamukkale", "image": "https://i.pinimg.com/736x/ce/db/c1/cedbc133663bdd122f7c608cc0388d22.jpg"}, 
+        {"name": "Ephesus", "image": "https://cdn.britannica.com/89/179089-050-B9F40C9E/Ruins-library-Ephesus-Celsus-Selcuk-Turkey.jpg"}]'>
+            <img src="https://cdn.britannica.com/82/4782-050-8129909C/Flag-Turkey.jpg" alt="Turkey Flag">
+            <h2>Turkey</h2>
+        </div>
+    </div>
+
+    <div id="modal">
+        <div id="modal-content"></div>
+    </div>
+    {{> footer }}
+</body>
+</html>

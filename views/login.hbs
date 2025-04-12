@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BucketList_login</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/login.css">
+    
+</head>
+<body>
+    <nav>
+        <h4 style="font-size: 20px; color: rgb(63, 37, 37); display: flex; font-family: cursive; align-items: center; margin: 0;">
+            <img src="uploads/bucket-list.png" style="width: 50px; height: 50px; margin-right: 0;">
+            <span style="font-size: 1.7rem; font-weight: bold; background: linear-gradient(90deg, #2b2826, #930303, #014f68); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                &nbsp;BucketList Tracker
+            </span>
+        </h4>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/explore">Explore</a></li>
+            <li><a href="/login" style="color:rgb(113, 112, 112)">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-form">
+                <div style="margin-bottom: 20px; text-align: center;">
+                    <h1 style="font-size: 30px; color: #333;"><i>Login</i></h1>
+                </div>
+
+                <form id="loginForm" onsubmit="return validateForm()" action="/auth/login" method="POST">
+                    <div style="margin-bottom: 15px;">
+                        <label for="email" style="display: block; margin-bottom: 5px; color: #333;">Email Address</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label for="password" style="display: block; margin-bottom: 5px; color: #333;">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+
+                    <button type="submit" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #2f3439; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+                </form>
+            </div>
+
+            <div class="image-container">
+                <img src="https://i.pinimg.com/564x/e2/09/ec/e209ec33eca8f41b5efb997c2c10d789.jpg" alt="Bucket List Image">
+                <div class="overlay-text">Welcome to login</div>
+                <div class="overlay-text" style="top: 55%; left: 48%; font-size: 20px;">Don't have an account?</div>
+                <div class="overlay-text" style="top: 67%; left: 48%; font-size: 30px;">
+                    <button class="animated-button" style="display: inline-block; padding: 10px 20px; font-size: 20px; color: aliceblue; background-color: #272b2e; border-radius: 5px; text-align: center; text-decoration: none;">
+                            <a href="/register" class="button-link">Sign up</a>
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style=" color: rgb(3, 6, 9); opacity: 60%; text-align: center; padding: 10px;">
+        <footer>Copyright &#169; Designed by Priya Sharma</footer>
+    </div>
+</body>
+</html>

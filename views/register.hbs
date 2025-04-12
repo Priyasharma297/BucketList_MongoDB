@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BucketList_register</title>
+    <link rel="stylesheet" href="/style.css">
+   <link rel="stylesheet" href="/register.css">
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var passwordConfirmed = document.getElementById('passwordConfirmed').value;
+
+            if (name === '' || email === '' || password === '' || passwordConfirmed === '') {
+                alert('Please fill in all fields.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+     <nav>
+  <h4 style="font-size: 20px; color: rgb(63, 37, 37); display: flex; font-family: cursive; align-items: center; margin: 0;">
+    <img src="uploads/bucket-list.png" style="width: 50px; height: 50px; margin-right: 0;">
+    <span style="font-size: 1.7rem; font-weight: bold; background: linear-gradient(90deg, #2b2826, #930303, #014f68); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      &nbsp;BucketList Tracker
+    </span>
+  </h4>
+  <ul>
+    <li><a href="/home" >Home</a></li>
+    <li><a href="/explore">Explore</a></li>
+    <li><a href="/login" >Login</a></li>
+    <li><a href="/register" style="color:rgb(113, 112, 112)">Register</a></li>
+  </ul>
+</nav>
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">Welcome to our registration page. Register, so that you can make your bucket list and live that list again and again by just watching your expereineces. Register fast to explore the thrilling experience !!!</marquee>
+    </div>
+    <center>
+        <div class="container">
+            <div class="cardr">
+                <div class="card-header">
+                    <h1><i>Register here!</i></h1>
+                </div>
+                <div class="card-body">
+                    <form onsubmit="return validateForm()" action="/auth/register" method="POST">
+                        <div class="form">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="form">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div class="form">
+                            <label for="passwordConfirmed" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="passwordConfirmed" name="passwordConfirmed">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://w0.peakpx.com/wallpaper/93/106/HD-wallpaper-map-and-coffee-travel-thumbnail.jpg" alt="Bucket List Image">
+                <div class="overlay-text">Let's start your journey!!</div>
+            </div>
+        </div>
+        {{#if message}}
+        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+    </center>
+    <footer>Copyright &#169; Designed by Priya Sharma</footer>
+</body>
+</html>

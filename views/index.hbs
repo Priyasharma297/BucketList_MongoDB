@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BucketList</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'https://www.therandomvibez.com/wp-content/uploads/2021/12/quotes-about-bucket-lists.jpg',
+            'https://www.therandomvibez.com/wp-content/uploads/2021/12/Bucket-List-Quotes.jpg',
+            'https://www.therandomvibez.com/wp-content/uploads/2021/12/bucket-list-checked-quotes.jpg',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBqiCkDt-Xy479ByKPpEvY8k4sa9sh5D7oKg&s',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS871ibACVebJP5hWTpVkVBxJuhFTpr-HO6tw&s'
+        ];
+
+        function changeImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            document.getElementById('mainImage').src = images[currentImageIndex];
+        }
+
+        window.onload = function() {
+            setInterval(changeImage, 2000); 
+
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 500);
+            });
+
+            const h3Element = document.querySelector('h3');
+            setTimeout(() => {
+                h3Element.style.opacity = '1';
+                h3Element.style.transform = 'translateY(0)';
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <div class="main-wrapper">
+        <div style="background-image: url('https://img.freepik.com/premium-photo/sunset-mountains_662214-90039.jpg');background-color:rgb(140, 141, 143);background-blend-mode:soft-light; padding: 20px;background-size:cover">
+            <h1 style="padding: 0;margin:0;font-size:50px;opacity: 0; transform: translateY(-50px); transition: all 1s ease;">BUCKET LIST</h1>
+            <h1 style="font-style:italic;padding-top: 0;margin:0;font-size:50px;opacity: 0; transform: translateY(-50px); transition: all 1s ease;">tracker</h1>
+            <h3 style="opacity: 0; transform: translateY(50px); transition: all 1s ease;"><i>"dream it , do it"</i></h3>
+            <br>
+            <br>
+            <div class="image-gallery">
+                <img id="mainImage" src="https://www.therandomvibez.com/wp-content/uploads/2021/12/quotes-about-bucket-lists.jpg" alt="Image 1" style="width:300px; height:300px; cursor:pointer;border-radius:150px;">
+            </div>
+            <br>
+        </div>
+
+        <br>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.pexels.com/photos/1374064/pexels-photo-1374064.jpeg?cs=srgb&dl=pexels-julieaagaard-1374064.jpg&fm=jpg" alt="Card 1 Image">
+                <h2>Adventure Awaits</h2>
+                <p>Plan your next big adventure and track every step you take.</p>
+            </div>
+            <div class="card">
+                <img src="https://i.natgeofe.com/n/8edcb63c-6867-45e7-8679-f93b4d396468/everest-anniversary-summit-1963-vertical.jpg" alt="Card 2 Image">
+                <h2>Dream Big</h2>
+                <p>List all your life goals and start working towards them today.</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2023/11/09/11/24/ai-generated-8377079_1280.png" alt="Card 3 Image">
+                <h2>Celebrate Success</h2>
+                <p>Look back on your achievements and cherish your memories.</p>
+            </div>
+        </div>
+
+        <br>
+        <div class="about-card">
+            <h2><i>About</i></h2>
+            <p><i>In today's fast-paced world, many people have a list of dreams, goals, and adventures they aspire to achieve—a bucket list. The Bucket List Tracker is a website designed to help individuals organize, and fulfill these aspirations. Whether it's traveling to exotic destinations, learning a new skill, or achieving personal milestones, Bucket List Tracker offers a comprehensive and user-friendly platform to turn dreams into reality.</i></p>
+            <button class="start_button"><a href="/home" style="text-decoration: none;color:#f12711;font-weight:bolder;">Let's start</a></button>
+        </div>
+    </center>
+    <br>
+    <br>
+     {{> footer }}
+</div>
+</body>
+</html>

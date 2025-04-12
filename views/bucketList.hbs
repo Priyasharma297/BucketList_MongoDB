@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucket List</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/bucketList.css">
+</head>
+<body class="bucketList">
+    <nav>
+       <h4 style="font-size: 20px; color: rgb(63, 37, 37); display: flex; font-family: cursive; align-items: center; margin: 0;">
+        <span style="font-size: 1.7rem; font-weight: bold; background: linear-gradient(90deg, #2b2826, #930303, #014f68); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          &nbsp;BucketList Tracker
+        </span>
+      </h4>
+        <ul>
+          {{#if user}}
+            <li><a href="/user">About</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/bucketList" style="color: rgb(113, 112, 112)">BucketList</a></li>
+            <li><a href="/stories">Experience</a></li>
+            <li><a href="/itinerary">Planner</a></li>
+            <li><a href="/logout">Logout</a></li>
+          {{else}}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+          {{/if}}
+        </ul>
+    </nav>
+    <center>
+        <h1 style="font-size: 36px; color: #333; margin-bottom: 20px;">My Bucket List</h1>
+        <form action="/bucket/add" method="POST" style="margin-bottom: 20px;">
+            <input type="text" name="name" placeholder="Add a new item" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+            <button type="submit">Add</button>
+        </form>
+        <form action="/bucket/" method="get" style="margin-bottom: 20px;">
+            <button type="submit" style="margin-bottom: 20px;background-color:#333;color:aliceblue;width:200px;height:50px;">Show the BucketList</button>
+        </form>
+        <ul class="ull">
+            {{#each items}}
+            <li class="bucket-list-item" style="background-color: #f2eeee;">
+                <form action="/bucket/check/{{this.id}}" method="POST" style="display: inline;">
+                    <input type="checkbox" name="is_checked" class="checkbox-large" {{#if this.checked}}checked{{/if}} onchange="this.form.submit()">
+                </form>
+                <span>{{this.name}}</span>
+
+                {{#if this.checked}}
+                <form action="/bucket/upload/{{this.id}}" method="POST" enctype="multipart/form-data" class="upload-form {{#if this.image_url}}disabled{{/if}}">
+                    <input type="file" name="image" accept="image/*" {{#if this.image_url}}disabled{{/if}}>
+                    <button type="submit" {{#if this.image_url}}disabled{{/if}}>Upload</button>
+                </form>
+                <div id="error-message-{{this.id}}" style="color: red; display: none;">Please choose a file before uploading.</div>
+                {{/if}}
+
+                {{#if this.image_url}}
+                <div class="uploaded-image-container">
+                    <img src="{{this.image_url}}" alt="Uploaded Image" class="enlarge-on-click">
+                </div>
+                {{/if}}
+
+                {{#if this.checked}}
+                <button id="shareExperienceButton-{{this.id}}">Experience</button>
+
+                <div id="experiencePopup-{{this.id}}" class="popup-container">
+                    <div class="popup-content">
+                        <span class="close-button" id="closePopupButton-{{this.id}}">&times;</span>
+                        <h2>Share Your Experience with everyone</h2>
+                        <form action="/bucket/addstory/{{this.id}}" method="POST">
+                            <textarea name="story" placeholder="Write your experience here..." required></textarea>
+                            <button type="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
+                {{/if}}
+
+                <form action="/bucket/delete/{{this.id}}" method="POST" style="display: inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+            {{/each}}
+        </ul>
+    </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    {{> footer }}
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const shareButtons = document.querySelectorAll('[id^="shareExperienceButton-"]');
+            shareButtons.forEach((shareButton) => {
+                const id = shareButton.id.split('-')[1];
+                const popup = document.getElementById(`experiencePopup-${id}`);
+                const closeButton = document.getElementById(`closePopupButton-${id}`);
+                
+                shareButton?.addEventListener("click", () => {
+                    popup.style.display = "flex"; 
+                });
+
+                closeButton?.addEventListener("click", () => {
+                    popup.style.display = "none"; 
+                });
+
+                window.addEventListener("click", (event) => {
+                    if (event.target === popup) {
+                        popup.style.display = "none"; 
+                    }
+                });
+            });
+
+            // Add file validation for upload form
+            document.querySelectorAll(".upload-form").forEach((form) => {
+                form.addEventListener("submit", function (e) {
+                    const fileInput = form.querySelector('input[type="file"]');
+                    const errorMessage = document.getElementById(`error-message-${form.dataset.itemId}`);
+                    if (!fileInput.files.length) {
+                        e.preventDefault();
+                        errorMessage.style.display = "block"; // Show error message
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/stories.css">
+    
+</head>
+<body>
+    <nav>
+        <h4>
+            <span>&nbsp;BucketList Tracker</span>
+        </h4>
+        <ul>
+            <li><a href="/user">About</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/bucketList">BucketList</a></li>
+            <li><a href="/stories" style="color: rgb(113, 112, 112)">Experience</a></li>
+            <li><a href="/itinerary">Planner</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><div class="search-icon" onclick="toggleSearchBar()">🔍</div></li>
+        </ul>
+    </nav>
+
+    <br><br><br>
+    <form action="/bucket/stories" method="get" style="margin-bottom: 20px;">
+        <center><button class="btu" type="submit">Click ! To look everyone's Experience</button></center>
+    </form>
+    <div class="search-bar" id="searchBar">
+        <input type="text" id="searchInput" placeholder="Search items by name..." oninput="filterItems()">
+    </div>
+    <ul class="bucket-list" id="bucketList">
+        {{#each items}}
+            {{#if this.image_url}} 
+                <li class="bucket-item" data-name="{{this.item_name}}" data-story="{{this.story}}" onclick="openPopupFromElement(this)">
+                    <h3>{{this.item_name}}</h3>
+                    <p><strong>By:</strong> {{this.user_name}}</p> 
+                    <div class="content-container">
+                        <div class="image-container">
+                            <img src="{{this.image_url}}" alt="Uploaded Image">
+                        </div>
+                        {{#if this.story}} 
+                            <div class="story">
+                               <center>Read</center>
+                            </div>
+                        {{else}}
+                            <p>No story available for this item.</p>
+                        {{/if}}
+                    </div>
+                </li>
+            {{/if}}
+        {{/each}}
+    </ul>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup()">&times;</span>
+            <h3>Experience</h3>
+            <p id="story-content"></p>
+        </div>
+    </div>
+
+   {{> footer }}
+    <script>
+        // Function to toggle the visibility of the search bar
+        function toggleSearchBar() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.style.display = searchBar.style.display === 'block' ? 'none' : 'block';
+        }
+
+        
+        function filterItems() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const items = document.querySelectorAll('.bucket-item');
+
+            items.forEach(item => {
+                const name = item.getAttribute('data-name').toLowerCase();
+                if (name.includes(filter)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+       
+        function openPopup(story) {
+            document.getElementById('story-content').innerText = story;
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+       
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+        function openPopupFromElement(elem) {
+    const story = elem.getAttribute('data-story');
+    document.getElementById('story-content').innerText = story;
+    document.getElementById('popup').style.display = 'flex';
+}
+
+    </script>
+</body>
+</html>
