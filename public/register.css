@@ -223,6 +223,7 @@ footer {
     }
     .marquee{
         margin-top: 20px;
+        display: none;
     }
 }
 @media (max-width: 480px) {
@@ -243,6 +244,7 @@ footer {
     }
     .marquee{
         margin-top: 20px;
+        display:none;
     }
 
     .login-box {
