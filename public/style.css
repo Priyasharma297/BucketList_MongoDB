@@ -72,8 +72,8 @@ body{
 }
 
 .about-card button:hover {
-   background-color: #202020;
-   color: white;
+   background-color: #bab9b9;
+   
 }
 .start_button{
    display: inline-block;
@@ -90,51 +90,7 @@ body{
 .start_button:hover{
    background-color: aliceblue;
 }
-nav{
-   background-color:rgba(40, 39, 39, 0.963);
-   color:rgb(19, 19, 19);
-   padding: 2px 25px;
-   display:flex ;
-   justify-content: space-between;
-   font-size: 20px;
-   height: 80px;
-   width: 1420px;
-   align-items: center;
-   background: rgba(0, 0, 0, 0); 
-    z-index: 1000;
-}
-nav ul{
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-}
-nav li{
-   list-style: none;
-}
-nav li a{
-   color: rgb(63, 37, 37);
-   text-decoration: none;
-   padding: 5px 20px;
-   font-size: larger;
-   font-weight: 800;
-}
-nav li a:hover{
-   color: rgb(113, 112, 112);
-   text-decoration: none;
-}
 
-.story{
-   background-color:rgb(240, 249, 251);
-   width: 1000px;
-   font-family: Arial, sans-serif;
-   line-height: 1.6;
-   margin: 20px;
-   border-radius: 2cqb;
-   border: 0px solid aliceblue;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   padding:  5px 20px ;
-   
-}
 .container {
    margin: 50px auto;
    background-color: #ffffff;
@@ -272,63 +228,7 @@ nav li a:hover{
    background-color:rgb(48, 48, 49);
 }
 
-footer {
-   background-color: rgba(0, 0, 0, 0.5); 
-   color: white;
-   padding: 10px 0;
-   text-align: center;
-   font-family: 'Arial', sans-serif;
- }
- 
- footer a {
-   color: white;
-   margin: 5px 0;
-   text-decoration: none;
- }
- 
- footer a:hover {
-   text-decoration: underline;
- }
- 
- footer .social-icons a {
-   margin: 0 5px;
- }
- 
- footer .copyright {
-   margin-top: 20px;
-   font-size: 0.9em;
- }
- 
- .footer-container {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-around;
-   align-items: flex-start;
-   padding: 15px;
- }
- 
- .footer-section {
-   flex: 1;
-   margin: 5px;
-   min-width: 200px;
- }
- 
- .footer-section h2, .footer-section h4 {
-   margin-bottom: 5px;
- }
- 
- .footer-section img {
-   margin-right: 10px;
- }
- 
- .footer-links, .footer-services, .footer-company {
-   display: flex;
-   flex-direction: column;
- }
- 
- .footer-links a, .footer-services h3, .footer-company h3 {
-   margin: 5px 0;
- }
+
  
  .user {
    margin: 10px;

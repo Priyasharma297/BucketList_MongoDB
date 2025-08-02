@@ -49,19 +49,7 @@
     </script>
 </head>
 <body>
-    <nav>
-        <h4>
-            <span>&nbsp;BucketList Tracker</span>
-        </h4>
-        <ul>
-            <li><a href="/user" style="color: rgb(113, 112, 112)">About</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/bucketList">BucketList</a></li>
-            <li><a href="/stories">Experience</a></li>
-            <li> <a href="/itinerary" >Planner</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </nav>
+    {{>navbar}}
     <div class="storycard">
         <h1>Welcome, {{user.name}}!</h1>
         <h1>

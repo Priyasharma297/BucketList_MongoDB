@@ -6,23 +6,7 @@ body {
      background-size: cover;
      background-blend-mode: soft-light;
  }
- nav h4 {
-    font-size: 20px;
-    color: rgb(63, 37, 37);
-    display: flex;
-    font-family: cursive;
-    align-items: center;
-    margin: 0;
-}
-
-nav h4 span {
-    font-size: 1.7rem;
-    font-weight: bold;
-    background: linear-gradient(90deg, #2b2826, #930303, #014f68);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+ 
  .enlarge-on-click {
      width: 80px;
      height: 80px;
@@ -62,16 +46,13 @@ nav h4 span {
      text-align: center;
      text-decoration: none;
      display: inline-block;
-     font-size: 16px;
+     font-size: 12px;
      margin: 2px 2px;
      cursor: pointer;
      border-radius: 5px;
      transition: background-color 0.3s ease, transform 0.3s ease;
  }
- button:hover {
-     background-color: #050505; 
-     transform: scale(1.05);
- }
+
  input[type="text"], input[type="file"] {
      padding: 10px;
      border: 1px solid #ccc;
@@ -168,14 +149,7 @@ background-color: #010101;
         background-color: beige;
     }
 
-    nav {
-        font-size: 12px;
-        padding: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        box-sizing: border-box;
-    }
+   
     input[type="checkbox"] {
         width: 5px;
         height: 5px;
@@ -183,27 +157,7 @@ background-color: #010101;
         background-color: rgb(54, 53, 53);
         cursor: pointer;
       }
-      
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        gap: 0;
-    }
-
-    nav ul li {
-        width: 33.33%;
-        text-align: center;
-        padding: 4px 0;
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.2;
-        box-sizing: border-box;
-    }
-
+  
     .bucket-list-item {
         flex-direction: row;
         align-items: center;
@@ -253,42 +207,7 @@ background-color: #010101;
         background-color: beige;
     }
 
-    nav {
-        width: 100%;
-        box-sizing: border-box;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
-        font-size: 12px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-
-    nav ul li {
-        width: 33.33%;
-        text-align: center;
-        padding: 4px 0;
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.2;
-        box-sizing: border-box;
-    }
-
-    nav h4 {
-        font-size: 16px;
-        margin: 5px 0;
-    }
-
-    nav h4 span {
-        font-size: 1.2rem;
-    }
+   
 
     .bucket-list-item {
         flex-direction: row;
@@ -330,4 +249,6 @@ background-color: #010101;
         width: 90px;
         font-size: 12px;
     }
+   
 }
+

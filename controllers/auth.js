@@ -48,7 +48,15 @@ exports.login = async (req, res) => {
         const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '2h' });
 
         // Set token in cookie
-        res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'Strict', maxAge: 1000 * 60 * 60 * 24 });
+       const isProduction = process.env.NODE_ENV === 'production';
+
+res.cookie('token', token, {
+  httpOnly: true,
+  secure: isProduction, // ✅ use false in localhost/dev
+  sameSite: 'Strict',
+  maxAge: 1000 * 60 * 60 * 24 // 1 day
+});
+
 
         return res.render('user', { message: 'Login successful', user });
     } catch (error) {

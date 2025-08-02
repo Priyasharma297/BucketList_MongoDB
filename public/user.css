@@ -5,23 +5,7 @@ body {
     background-size: cover;
     background-blend-mode: soft-light;
 }
-nav h4 {
-    font-size: 20px;
-    color: rgb(63, 37, 37);
-    display: flex;
-    font-family: cursive;
-    align-items: center;
-    margin: 0;
-}
 
-nav h4 span {
-    font-size: 1.7rem;
-    font-weight: bold;
-    background: linear-gradient(90deg, #2b2826, #930303, #014f68);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
 #modal {
 display: none;
 position: fixed;
@@ -141,35 +125,7 @@ center h2 {
         box-sizing: border-box;
     }
 
-    nav {
-        font-size: 12px;
-        padding: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 50%;
-        box-sizing: border-box;
-    }
-
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        width: 50%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        gap: 0; /* no gap between items */
-    }
-
-    nav ul li {
-        width: 33.33%;
-        text-align: center;
-        padding: 4px 0;
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.2;
-        box-sizing: border-box;
-    }
-
+   
     .storycard h1 {
         font-size: 30px;
         padding: 100px 50px 10px;
@@ -226,34 +182,6 @@ center h2 {
 
     body {
         font-size: 14px;
-    }
-
-    nav {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-
-    nav ul li {
-        width: 33.33%;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    nav h4 {
-        font-size: 18px;
-    }
-
-    nav h4 span {
-        font-size: 1.5rem;
     }
 
     .storycard h1 {

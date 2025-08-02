@@ -8,28 +8,20 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/bucketList.css">
+    <style>
+        
+
+.uploaded-image-container img {
+ width: 70px;      /* Fixed width */
+  height: 70px;
+  object-fit: cover; /* Crops to fill container without distortion */
+  
+}
+
+    </style>
 </head>
 <body class="bucketList">
-    <nav>
-       <h4 style="font-size: 20px; color: rgb(63, 37, 37); display: flex; font-family: cursive; align-items: center; margin: 0;">
-        <span style="font-size: 1.7rem; font-weight: bold; background: linear-gradient(90deg, #2b2826, #930303, #014f68); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          &nbsp;BucketList Tracker
-        </span>
-      </h4>
-        <ul>
-          {{#if user}}
-            <li><a href="/user">About</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/bucketList" style="color: rgb(113, 112, 112)">BucketList</a></li>
-            <li><a href="/stories">Experience</a></li>
-            <li><a href="/itinerary">Planner</a></li>
-            <li><a href="/logout">Logout</a></li>
-          {{else}}
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-          {{/if}}
-        </ul>
-    </nav>
+   {{>navbar}}
     <center>
         <h1 style="font-size: 36px; color: #333; margin-bottom: 20px;">My Bucket List</h1>
         <form action="/bucket/add" method="POST" style="margin-bottom: 20px;">
@@ -61,8 +53,9 @@
                 </div>
                 {{/if}}
 
+
                 {{#if this.checked}}
-                <button id="shareExperienceButton-{{this.id}}">Experience</button>
+                <button id="shareExperienceButton-{{this.id}}" class="e">Experience</button>
 
                 <div id="experiencePopup-{{this.id}}" class="popup-container">
                     <div class="popup-content">
@@ -77,7 +70,7 @@
                 {{/if}}
 
                 <form action="/bucket/delete/{{this.id}}" method="POST" style="display: inline;">
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="d" style="background-color:rgb(213, 8, 8)">Delete</button>
                 </form>
             </li>
             {{/each}}

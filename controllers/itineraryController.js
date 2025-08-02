@@ -101,7 +101,7 @@ Include daily plans with travel , food, and sightseeing. Present each day clearl
         model: "openai/gpt-4",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.7,
-        max_tokens: 400,
+        max_tokens: 368,
       },
       {
         headers: {

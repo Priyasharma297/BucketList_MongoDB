@@ -79,33 +79,6 @@ body {
 #audio-controls button:hover {
     background-color: #515050;
 }
-nav h4 {
-    font-size: 20px;
-    color: rgb(63, 37, 37);
-    display: flex;
-    font-family: cursive;
-    align-items: center;
-    margin: 0;
-}
-nav h4 img {
-    width: 50px;
-    height: 50px;
-    margin-right: 0;
-}
-nav h4 span {
-    font-size: 1.7rem;
-    font-weight: bold;
-    background: linear-gradient(90deg, #2b2826, #930303, #014f68);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-footer {
-    color: rgb(3, 6, 9);
-    opacity: 60%;
-    text-align: center;
-    padding: 10px;
-}
 
 @media screen and (max-width: 768px) {
     html, body {
@@ -118,34 +91,7 @@ footer {
         background-color: beige;
     }
 
-    nav {
-        font-size: 12px;
-        padding: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        gap: 0;
-    }
-
-    nav ul li {
-        width: 33.33%;
-        text-align: center;
-        padding: 4px 0;
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.2;
-        box-sizing: border-box;
-    }
+    
 
     .storycard h1 {
         font-size: 30px;
@@ -212,34 +158,6 @@ footer {
 
     body {
         font-size: 14px;
-    }
-
-    nav {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-    }
-
-    nav ul li {
-        width: 33.33%;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    nav h4 {
-        font-size: 18px;
-    }
-
-    nav h4 span {
-        font-size: 1.5rem;
     }
 
     .storycard h1 {

@@ -1,54 +1,83 @@
-<footer>
-<div class="footer-container">
-            <div class="footer-section">
-                <h4 style="font-size: 25px; color: rgb(216, 219, 222); display: flex; font-family: cursive; padding: 20px;">
-                    Bucket List Tracker
-                </h4>
-                <h3 style="color:rgb(174, 173, 173);font-family:monospace">Start your journey, and fulfill all your dreams</h3>
-            </div>
-            <div class="footer-section footer-links" style="color: rgb(216, 216, 198);">
-                <h2><b>Links</b></h2>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/profile">Profile</a>
-                <a href="/explore">Explore</a>
-            </div>
-            <div class="footer-section footer-services" style="color: rgb(216, 216, 198);">
-                <h2><b>Services</b></h2>
-                <h3 style="font-size:medium;padding:5px;">Track your progress</h3>
-                <h3 style="font-size:medium;padding:5px;">Experience the experienced one</h3>
-                <h3 style="font-size:medium;padding:5px;">Watch your stories</h3>
-            </div>
-            <div class="footer-section footer-company" style="color: rgb(216, 198, 198);">
-                <h2><b>Company</b></h2>
-                <h3 style="font-size:medium;padding:5px;">Terms and Conditions</h3>
-                <h3 style="font-size:medium;padding:5px;">Privacy Policy</h3>
-            </div>
-            <div class="footer-section" style="color: rgb(216, 198, 198);">
-                <h2>Get in touch</h2>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/priya-sharma-9840a7287/" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
-         <a href="https://github.com/Priyasharma297" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-                    <a href="https://www.instagram.com" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com" target="_blank">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.twitter.com" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <hr style="width:1300px;">
-        <div class="copyright" style="color: rgb(180, 176, 176);">
-            &copy; Bucket List Tracker. All rights reserved.
-            <br>
-            Designed by Priya Sharma
-        </div>
-        </footer>
+<footer style="background-color: #fafafa; color: #333; padding: 40px 20px; font-family: 'Segoe UI', sans-serif;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; max-width: 1300px; margin: auto;">
+
+    <!-- Brand Section -->
+    <div style="flex: 1 1 250px; min-width: 240px;">
+      <h4 style="font-size: 26px; font-family: cursive; margin-bottom: 10px; color: #222;">Bucket List Tracker</h4>
+      <p style="color: #666; font-family: monospace; font-size: 14px;">Start your journey, and fulfill all your dreams</p>
+    </div>
+
+    <!-- Links -->
+    <div style="flex: 1 1 180px; min-width: 150px;">
+      <h3 style="color: #333; font-size: 18px;">Links</h3>
+      <ul style="list-style: none; padding: 0; margin-top: 10px;">
+        <li><a href="/home" style="color: #333; text-decoration: none; display: block; padding: 6px 0; transition: 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#333'">Home</a></li>
+        <li><a href="/explore" style="color: #333; text-decoration: none; display: block; padding: 6px 0; transition: 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#333'">Explore</a></li>
+        <li><a href="/login" style="color: #333; text-decoration: none; display: block; padding: 6px 0; transition: 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#333'">Login</a></li>
+        <li><a href="/register" style="color: #333; text-decoration: none; display: block; padding: 6px 0; transition: 0.3s;" onmouseover="this.style.color='#007bff'" onmouseout="this.style.color='#333'">Register</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div style="flex: 1 1 180px; min-width: 150px;">
+      <h3 style="color: #333; font-size: 18px;">Services</h3>
+      <ul style="list-style: none; padding: 0; margin-top: 10px;">
+        <li style="padding: 6px 0;">Track your progress</li>
+        <li style="padding: 6px 0;">Experience the experienced one</li>
+        <li style="padding: 6px 0;">Watch your stories</li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div style="flex: 1 1 180px; min-width: 150px;">
+      <h3 style="color: #333; font-size: 18px;">Company</h3>
+      <ul style="list-style: none; padding: 0; margin-top: 10px;">
+        <li style="padding: 6px 0;">Terms and Conditions</li>
+        <li style="padding: 6px 0;">Privacy Policy</li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div style="flex: 1 1 220px; min-width: 200px; text-align: center;">
+  <h3 style="color: #333; font-size: 18px; margin-bottom: 12px;">Get in touch</h3>
+  
+  <div style="display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+    <a href="https://www.linkedin.com/in/priya-sharma-9840a7287/" target="_blank"
+      style="color: #333; text-decoration: none; font-size: 20px;"
+      onmouseover="this.style.color='#0e76a8'" onmouseout="this.style.color='#333'">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/Priyasharma297" target="_blank"
+      style="color: #333; text-decoration: none; font-size: 20px;"
+      onmouseover="this.style.color='#4078c0'" onmouseout="this.style.color='#333'">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.instagram.com" target="_blank"
+      style="color: #333; text-decoration: none; font-size: 20px;"
+      onmouseover="this.style.color='#e4405f'" onmouseout="this.style.color='#333'">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com" target="_blank"
+      style="color: #333; text-decoration: none; font-size: 20px;"
+      onmouseover="this.style.color='#3b5998'" onmouseout="this.style.color='#333'">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.twitter.com" target="_blank"
+      style="color: #333; text-decoration: none; font-size: 20px;"
+      onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='#333'">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+</div>
+
+
+  </div>
+
+  <hr style="border-color: #ccc; margin: 40px 0;">
+
+  <div style="text-align: center; font-size: 14px; color: #888;">
+    &copy; Bucket List Tracker. All rights reserved.
+    <br>
+    Designed by Priya Sharma
+  </div>
+</footer>

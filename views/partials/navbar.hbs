@@ -1,0 +1,148 @@
+<!-- NAVBAR START -->
+<style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5%;
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    z-index: 1000;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #2b2826, #930303, #014f68);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    background: none;
+    border: none;
+    color: #444;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #222;
+    font-size: 1.05rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links li a::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #014f68;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+  }
+
+  .nav-links li a:hover {
+    color: #014f68;
+  }
+
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 5%;
+      background-color: #fff;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .nav-links li a {
+      font-size: 1rem;
+      color: #222;
+    }
+
+    .nav-links li a::after {
+      display: none;
+    }
+  }
+</style>
+
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo-text">BucketList Tracker</span>
+  </div>
+
+  <button class="hamburger" onclick="toggleDropdown()">&#9776;</button>
+
+  <ul class="nav-links" id="navDropdown">
+    {{#if user}}
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/bucketList">BucketList</a></li>
+      <li><a href="/stories">Experience</a></li>
+      <li><a href="/itinerary">Planner</a></li>
+      <li><a href="/explore">Explore</a></li>
+      <li><a href="/logout">Logout</a></li>
+    {{else}}
+      <li><a href="/home">Home</a></li>
+      <li><a href="/explore">Explore</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/register">Register</a></li>
+    {{/if}}
+  </ul>
+</nav>
+
+<script>
+  function toggleDropdown() {
+    const dropdown = document.getElementById("navDropdown");
+    dropdown.classList.toggle("show");
+  }
+
+  document.addEventListener("click", function (e) {
+    const dropdown = document.getElementById("navDropdown");
+    const hamburger = document.querySelector(".hamburger");
+
+    if (!dropdown.contains(e.target) && !hamburger.contains(e.target)) {
+      dropdown.classList.remove("show");
+    }
+  });
+</script>
+<!-- NAVBAR END -->

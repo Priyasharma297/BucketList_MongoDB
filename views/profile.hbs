@@ -8,20 +8,24 @@
     <link rel="stylesheet" href="/profile.css">
 </head>
 <body>
-    <nav>
-        <h4>
-            <img src="uploads\bucket-list.png" alt="Bucket List Icon">
-            <span>&nbsp;BucketList Tracker</span>
-        </h4>
-        <ul>
-            <li><a href="/user">About</a></li>
-            <li><a href="/profile" style="color: rgb(113, 112, 112)">Profile</a></li>
-            <li><a href="/bucketList">BucketList</a></li>
-            <li><a href="/stories">Experience</a></li>
-            <li><a href="/itinerary">Planner</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </nav>
+    {{>navbar}}
+     
+        <h1 style="font-size: 2.2rem; color: #2e2e2e; text-align: center; margin: 20px 0 10px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  Welcome, {{user.name}}!
+</h1>
+
+<div style="text-align: center; margin: 0; font-size: 1.1rem; color: #555; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <p style="margin: 5px 0 15px 0;">Go! Watch your stories..</p>
+
+  <a href="/story"
+     style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 6px; font-size: 1rem; transition: background-color 0.3s ease;"
+     onmouseover="this.style.backgroundColor='#388e3c'"
+     onmouseout="this.style.backgroundColor='#4CAF50'">
+     Watch Stories
+  </a>
+</div>
+
+    
     <br>
     <div class="container">
         <div class="profile-header">
